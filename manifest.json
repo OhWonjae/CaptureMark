@@ -1,24 +1,24 @@
 {
   "manifest_version": 3,
   "name": "Capture Mark",
-  "description": "Capture screenshot and store bookmark scroll",
+  "description": "Capture screenshot and store bookmark scroll!!",
   "version": "0.1",
   "background": {
-    "service_worker": "background.js",
+    "service_worker": "./src/background.js",
     "type": "module"
   },
   "action": {
     "default_title": "Click Me",
     "default_popup": "popup.html"
   },
-  "permissions": ["activeTab","storage","contextMenus","bookmarks"],
+  "permissions": ["activeTab","storage","contextMenus","bookmarks","unlimitedStorage"],
   "host_permissions": [
     "<all_urls>"
   ],
   "icons": {
-    "16": "images/icon-16.png",
-    "32": "images/icon-32.png",
-    "48": "images/icon-48.png",
-    "128": "images/icon-128.png"
+    "16": "public/assets/logo/captureMark16.png",
+    "32": "public/assets/logo/captureMark32.png",
+    "48": "public/assets/logo/captureMark48.png",
+    "128": "public/assets/logo/captureMark128.png"
   }
 }
