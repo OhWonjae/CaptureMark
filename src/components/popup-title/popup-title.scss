@@ -1,0 +1,17 @@
+.popup-title{
+  display:flex;
+  justify-content: center;
+  font-size: x-large;
+
+  .title-group{
+    display:flex;
+    align-items: center;
+    position: relative;
+    width:230px;
+  }
+  .title-text{
+    position: absolute;
+    left:45px;
+
+  }
+}
