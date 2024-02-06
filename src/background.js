@@ -9,8 +9,8 @@ chrome.runtime.onInstalled.addListener(async function () {
   console.log('init@!!1234');
   const tab = await getCurrentTab();
   console.log('dd', tab);
-  const tab2 = await createNewTab('http://www.naver.com');
-  console.log('dd', tab2);
+  //const tab2 = await createNewTab('http://www.naver.com');
+  //console.log('dd', tab2);
   chrome.contextMenus.create({
     id: 'CaptureMark',
     title: 'CaptureMark',
