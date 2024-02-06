@@ -1,0 +1,34 @@
+.directory-button{
+  background-color: var(--gray-01);
+  color: var(--gray-02);
+  border-radius: 100px;
+  border: 1px var(--gray-01) solid;
+  width:125px;
+  height: 60px;
+  word-break: break-word;
+  padding: 8px;
+  cursor:pointer;
+  .btn-text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:44px;
+    overflow: hidden;
+  }
+  .btn-input-text{
+    width:90px;
+    overflow: hidden;
+    display: block;
+    border: none;          /* 테두리 제거 */
+    outline: none;         /* 포커스 시 나타나는 아웃라인 제거 */
+    background-color: transparent; /* 배경색 투명하게 설정 */
+    box-shadow: none;      /* 그림자 제거 */
+    padding: 8px;            /* 패딩 제거 */
+    margin: 0;             /* 마진 제거 */
+  }
+  &.active{
+    background-color: var(--green-primary);
+    color: var(--white);
+    border: 1px var(--green-primary) solid;
+  }
+}

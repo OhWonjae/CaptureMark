@@ -1,3 +1,4 @@
+@import './variables/color.scss';
 @font-face {
   font-family:GmarketSansBold;
   src:url('/public/assets/fonts/GmarketSansBold.otf');
@@ -11,13 +12,16 @@
   font-family:GmarketSansMedium;
   src:url('/public/assets/fonts/GmarketSansMedium.otf');
 }
-
+html,body{
+  margin:0;
+}
 html.popup-frame{
 
     font-family: GmarketSansMedium, serif;
     box-sizing: border-box;
     width:700px;
     height: 600px;
+  padding: 0px 40px 10px 40px
 
 }
 
