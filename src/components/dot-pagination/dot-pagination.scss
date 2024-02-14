@@ -1,0 +1,25 @@
+.dot-pagination{
+gap: 25px;
+ margin-top: 10px;
+
+ display: flex;
+ justify-content: center;
+ .left-arrow{
+   width:20px;
+  height:20px;
+ }
+ .dot{
+  width:20px;
+  height:20px;
+  background-color: var(--gray-02);
+  &.active{
+   background-color: var(--green-primary);
+  }
+  border-radius: 50%;
+ }
+ .right-arrow{
+  width:20px;
+  height:20px;
+
+ }
+}

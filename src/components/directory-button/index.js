@@ -9,9 +9,10 @@ const _initialState = {
 export function DirectoryButton({ root, initialState = _initialState }) {
   this.state = { ..._initialState, ...initialState };
   this.target = document.createElement('button');
-  this.target.className = `directory-button idx-${this.state.id} ${this.state.active ? 'active' : ''} ${this.state.edit ? 'edit' : ''} `;
-  this.target.innerHTML = `<input class="btn-input-text idx-${this.state.id} ${this.state.active ? 'active' : ''} ${this.state.edit ? 'edit' : ''}" style="display:none" value="${this.state.text}"/>
-    <div class="btn-text idx-${this.state.id} ${this.state.active ? 'active' : ''} ${this.state.edit ? 'edit' : ''}">${this.state.text}</div>`;
+  this.target.className = `directory-button ${this.state.active ? 'active' : ''} ${this.state.edit ? 'edit' : ''}`;
+  this.target.setAttribute('data-id', this.state.id);
+  this.target.innerHTML = `<input class="btn-input-text" type='text' maxlength='8' style="display:none" value="${this.state.text}"/>
+    <div class="btn-text ">${this.state.text}</div>`;
   root.appendChild(this.target);
 
   this.setState = newState => {
@@ -20,11 +21,9 @@ export function DirectoryButton({ root, initialState = _initialState }) {
   };
   this.render = () => {
     //console.log('setState', this.state.text);
-    this.target.className = `directory-button idx-${this.state.id} ${this.state.active ? 'active' : ''} ${this.state.edit ? 'edit' : ''} `;
-    this.target.children[0].className = `btn-input-text idx-${this.state.id} ${this.state.active ? 'active' : ''} ${this.state.edit ? 'edit' : ''}`;
+    this.target.className = `directory-button ${this.state.active ? 'active' : ''} ${this.state.edit ? 'edit' : ''}`;
+    this.target.setAttribute('data-id', this.state.id);
     this.target.children[0].value = this.state.text;
-
-    this.target.children[1].className = `btn-text idx-${this.state.id} ${this.state.active ? 'active' : ''} ${this.state.edit ? 'edit' : ''}`;
     this.target.children[1].textContent = this.state.text;
     if (this.state.edit) {
       this.target.children[0].style.display = '';
