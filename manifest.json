@@ -11,9 +11,15 @@
     "default_title": "Click Me",
     "default_popup": "popup.html"
   },
-  "permissions": ["activeTab","storage","contextMenus","bookmarks","unlimitedStorage"],
+  "permissions": ["activeTab","storage","scripting","contextMenus","bookmarks","unlimitedStorage"],
   "host_permissions": [
     "<all_urls>"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["public/assets/close-button.png"],
+      "matches": ["<all_urls>"]
+    }
   ],
   "icons": {
     "16": "public/assets/logo/captureMark16.png",
