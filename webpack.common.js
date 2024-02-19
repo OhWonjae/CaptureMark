@@ -6,6 +6,7 @@ module.exports = {
     background: './src/background.js',
     popup: './src/popup.js',
     screenshot: './src/screenshot.js',
+    register: './src/register.js',
   },
   output: {
     filename: './src/[name].js',
