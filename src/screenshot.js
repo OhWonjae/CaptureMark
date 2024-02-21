@@ -45,8 +45,8 @@ export const screenshot = () => {
       ` position: fixed;
       cursor:pointer;
     z-index: 2147483647;
-    left: 98%;
-    top: 2%;
+    right: 30px;
+    top: 30px;
     width: 20px;
     height: 20px;`,
     );
@@ -91,7 +91,7 @@ export const screenshot = () => {
         document.removeEventListener('mouseup', onMouseUp);
         const rect = subset.getBoundingClientRect();
         _overall.removeChild(subset);
-
+        CloseCapture();
         // 선택된 영역의 정보를 백그라운드 스크립트로 전송
         chrome.runtime.sendMessage({
           action: 'captureSelectedArea',
