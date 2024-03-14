@@ -122,6 +122,7 @@ function App() {
   //   root.getElementsByClassName('data-id'),
   // );
   // Directory에는 그 하위 아이템 데이터 필요없음
+  console.log('popup opne!!!');
   new PopupTitle({
     root,
     initialState: {
@@ -133,7 +134,6 @@ function App() {
   const changeActiveDirectory = async id => {
     if (this.activeDirectoryId !== id) {
       const fetchedData = await getStorageDirectoryData();
-      console.log('fetched', fetchedData.directoryData, id);
       const idx = fetchedData.directoryData.findIndex(v => v.id === id);
 
       directoryItemContent.setState({

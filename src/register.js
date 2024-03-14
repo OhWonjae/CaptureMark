@@ -25,21 +25,22 @@ export const register = async () => {
     background-color: rgba(30,10,0,1);
   `,
   );
-  // new PopupTitle({
-  //   root,
-  //   initialState: {
-  //     title: 'Capture Mark',
-  //     logoSrc: 'public/assets/logo/captureMark48.png',
-  //   },
-  // });
+  new PopupTitle({
+    root,
+    initialState: {
+      title: 'Capture Mark',
+      logoSrc: 'public/assets/logo/captureMark48.png',
+    },
+  });
   document.body.appendChild(root);
   //console.log('register!!!', PopupTitle);
   //return root;
+  // };
   const chromeRuntimePort = chrome.runtime.connect();
   chromeRuntimePort.onMessage.addListener(function (msg) {
     console.log('onregister', msg);
-    // if (document?.body) {
-    //   OpenRegister();
-    // }
+    if (document?.body) {
+      //OpenRegister();
+    }
   });
 };
