@@ -4,9 +4,6 @@ export const screenshot = () => {
   );
 
   const CloseCapture = () => {
-    // if (!document?.body) {
-    //   return;
-    // }
     const overalls = document.body.getElementsByClassName('capture_mark')[0];
     if (overalls) {
       document.body.removeChild(overalls);
@@ -14,9 +11,6 @@ export const screenshot = () => {
   };
 
   const StartCapture = () => {
-    // if (!document?.body) {
-    //   return;
-    // }
     let _overall = undefined;
 
     if (_overall) {
@@ -54,8 +48,8 @@ export const screenshot = () => {
     _overall.appendChild(closeButton);
     document.body.appendChild(_overall);
 
-    document.addEventListener('mousedown', function (e) {
-      let startX = e.pageX + window.scrollX;
+    document.addEventListener('mousedown', function onMouseDown(e) {
+      let startX = e.pageX - window.scrollX;
       let startY = e.pageY - window.scrollY;
       console.log('startXY', startY, window.scrollY, e.pageY, e.offsetY);
       const subset = document.createElement('div');
@@ -75,7 +69,7 @@ export const screenshot = () => {
       _overall.appendChild(subset);
 
       function onMouseMove(e) {
-        let currentX = e.pageX;
+        let currentX = e.pageX - window.scrollX;
         let currentY = e.pageY - window.scrollY;
         let width = Math.abs(currentX - startX);
         let height = Math.abs(currentY - startY);
@@ -86,10 +80,10 @@ export const screenshot = () => {
       }
 
       function onMouseUp() {
-        console.log('mouseUp');
+        document.removeEventListener('mousedown', onMouseDown);
         document.removeEventListener('mousemove', onMouseMove);
         document.removeEventListener('mouseup', onMouseUp);
-        const rect = subset.getBoundingClientRect();
+        const rect = subset.style;
         _overall.removeChild(subset);
         CloseCapture();
         // 선택된 영역의 정보를 백그라운드 스크립트로 전송
@@ -102,6 +96,8 @@ export const screenshot = () => {
             height: rect.height,
           },
         });
+
+        // console.log(getEventListeners(document));
       }
 
       document.addEventListener('mousemove', onMouseMove);
@@ -115,8 +111,7 @@ export const screenshot = () => {
     return _overall;
   };
   var chromeRuntimePort = chrome.runtime.connect();
-  chromeRuntimePort.onMessage.addListener(function (msg) {
-    console.log('onMessage!!! Start!!', msg);
+  chromeRuntimePort.onMessage.addListener(function () {
     if (document?.body) {
       CloseCapture();
       StartCapture();
